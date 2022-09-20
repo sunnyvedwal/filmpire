@@ -14,11 +14,12 @@ const Movies = () => {
   const { genreIdOrCategoryName } = useSelector(
     (state) => state.currentGenreOrCategory
   );
-  console.log(genreIdOrCategoryName);
+
   const { data, error, isFetching } = useGetMoviesQuery({
     genreIdOrCategoryName,
     page,
   });
+
   if (isFetching) {
     return (
       <Box display='flex' justifyContent='center'>
