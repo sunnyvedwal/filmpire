@@ -11,7 +11,7 @@ const Profile = () => {
     localStorage.clear();
     window.location.href = '/';
   };
-  console.log(user);
+
   return (
     <Box>
       <Box display='flex' justifyContent='space-between'>

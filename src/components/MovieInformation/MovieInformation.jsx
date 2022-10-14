@@ -39,7 +39,7 @@ const MovieInformation = () => {
   const isMovieFavorited = true;
   const isMovieWatchlisted = true;
   const [open, setOpen] = useState(false);
-  console.log(recommendations);
+
   const addTOFavorites = () => {};
   const addTOWatchlist = () => {};
   if (isFetching) {

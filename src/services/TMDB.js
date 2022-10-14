@@ -26,7 +26,6 @@ export const tmdbApi = createApi({
         }
         //Get Movies by Genre
         if (genreIdOrCategoryName && typeof genreIdOrCategoryName == 'number') {
-          console.log('gen');
           return `discover/movie?with_genres=${genreIdOrCategoryName}&page=${page}&api_key=${tmdbApiKey}`;
         } else return `movie/popular?page=${page}&api_key=${tmdbApiKey}`;
       },
@@ -41,6 +40,13 @@ export const tmdbApi = createApi({
       query: ({ movie_id, list }) =>
         `/movie/${movie_id}/${list}?api_key=${tmdbApiKey}`,
     }),
+    getActorDetails: builder.query({
+      query: (id) => `/person/${id}?api_key=${tmdbApiKey}`,
+    }),
+    getMoviesByActor: builder.query({
+      query: ({ id, page }) =>
+        `/discover/movie?with_cast=${id}&page=${page}&api_key=${tmdbApiKey}`,
+    }),
   }),
 });
 
@@ -49,4 +55,6 @@ export const {
   useGetMoviesQuery,
   useGetMovieQuery,
   useGetRecommendationsQuery,
+  useGetActorDetailsQuery,
+  useGetMoviesByActorQuery,
 } = tmdbApi;
