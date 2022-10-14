@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Modal,
   Typography,
@@ -38,6 +38,7 @@ const MovieInformation = () => {
   const classes = useStyles();
   const isMovieFavorited = true;
   const isMovieWatchlisted = true;
+  const [open, setOpen] = useState(false);
   console.log(recommendations);
   const addTOFavorites = () => {};
   const addTOWatchlist = () => {};
@@ -171,7 +172,11 @@ const MovieInformation = () => {
                 >
                   IMDB
                 </Button>
-                <Button href='#' onClick={() => {}} endIcon={<Theaters />}>
+                <Button
+                  href='#'
+                  onClick={() => setOpen(true)}
+                  endIcon={<Theaters />}
+                >
                   Trailer
                 </Button>
               </ButtonGroup>
@@ -221,6 +226,23 @@ const MovieInformation = () => {
           <Box>Sorry nothing was found</Box>
         )}
       </Box>
+      <Modal
+        closeAfterTransition
+        className={classes.modal}
+        open={open}
+        onClose={() => setOpen(false)}
+      >
+        {data.videos.results.length > 0 && (
+          <iframe
+            autoPlay
+            className={classes.videos}
+            frameBorder='0'
+            title='Trailer'
+            src={`https://www.youtube.com/embed/${data.videos.results[0].key}`}
+            allow='autoplay'
+          />
+        )}
+      </Modal>
     </Grid>
   );
 };
