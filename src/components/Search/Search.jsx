@@ -7,6 +7,7 @@ import useStyles from './styles';
 import { useState } from 'react';
 import { searchMovie } from '../../features/currentGenreOrCategory';
 const Search = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const classes = useStyles();
   const [query, setQuery] = useState('');
@@ -15,6 +16,7 @@ const Search = () => {
       dispatch(searchMovie(query));
     }
   };
+  if (location.pathname !== '/') return null;
   return (
     <div className={classes.searchContainer}>
       <TextField

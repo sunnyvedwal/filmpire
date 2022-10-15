@@ -74,7 +74,7 @@ const NavBar = () => {
           </IconButton>
 
           {!isMobile && <Search />}
-          {isMobile && <Search />}
+
           <div>
             {!isAuthenticated ? (
               <Button color='inherit' onClick={fetchToken}>
@@ -97,6 +97,7 @@ const NavBar = () => {
               </Button>
             )}
           </div>
+          {isMobile && <Search />}
         </Toolbar>
       </AppBar>
       <div>
