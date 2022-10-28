@@ -154,7 +154,7 @@ const MovieInformation = () => {
         </Grid>
         <Grid item container style={{ marginTop: '2rem' }}>
           <div className={classes.buttonsContainer}>
-            <Grid item xs={12} sm={6} className={classes.buttonsContainer}>
+            <Grid item xs={12} sm={12} className={classes.buttonsContainer}>
               <ButtonGroup size='medium' variant='outlined'>
                 <Button
                   target='_blank'
